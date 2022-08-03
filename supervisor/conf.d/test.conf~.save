@@ -1,0 +1,29 @@
+[program:mount_next_drive]
+directory=/home/pi/albatros2_daq/new_daq
+command=python /home/pi/albatros2_daq/new_daq/mount_next_drive.py
+process_name='mount_next_drive'
+priority=100
+#stopasgroup=true
+autorestart=false
+startsecs=0
+stdout_logfile=/home/pi/logs/supervisord/mount_stdout.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+stderr_logfile=/home/pi/logs/supervisord/mount_stderr.log
+stderr_logfile_maxbytes=1MB
+stderr_logfile_backups=10
+
+[program:config_fpga]
+directory=/home/pi/albatros2_daq/new_daq
+command=python /home/pi/albatros2_daq/new_daq/config_fpga.py -c config.ini
+process_name='config_fpga'
+priority=200
+#stopasgroup=true
+autorestart=false
+startsecs=0
+stdout_logfile=/home/pi/logs/supervisord/mount_stdout.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+stderr_logfile=/home/pi/logs/supervisord/mount_stderr.log
+stderr_logfile_maxbytes=1MB
+stderr_logfile_backups=10
